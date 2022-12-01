@@ -9,18 +9,18 @@ def file_reader(file: str) -> str:
 
 
 def solver(s: str) -> int:
-    total = 0
-    for line in s.splitlines():
-        ln = line.split()
-        params = ln[0]
-        min_ = int(params.split("-")[0])
-        max_ = int(params.split("-")[-1])
-        char = ln[1].replace(":", "")
-        password = ln[-1]
-        if char in password and min_ <= password.count(char) <= max_:
-            total += 1
-    return total
-
+    lines = s.splitlines()
+    split_index = 0
+    previous_index = 0
+    calories = []
+    splits = [i for i, line in enumerate(lines) if line == '']
+    for i, _ in enumerate(lines):
+        if i in splits:
+            calories.append(lines[previous_index:splits[split_index]])
+            previous_index = i + 1
+            split_index += 1
+    out = sorted([sum(int(val) for val in c) for c in calories], reverse=True)
+    return sum(out[:3])
 
 if __name__ == "__main__":
     print(solver(file_reader(file)))
