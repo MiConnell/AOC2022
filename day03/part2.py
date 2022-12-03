@@ -1,4 +1,5 @@
 import os
+import string
 
 file = os.path.join(os.path.dirname(__file__), "blob.txt")
 
@@ -9,23 +10,18 @@ def file_reader(file: str) -> str:
 
 
 def solver(s: str) -> int:
-    _translation = {'A': 'R', 'X': 'R', 'B': 'P', 'Y': 'P', 'C': 'S', 'Z': 'S'}
-    weights = {'R': 1, 'P': 2, 'S': 3}
-    values = {'X': 0, 'Y': 3, 'Z': 6}
-    winning_losing_scores = {'R': 'S', 'P': 'R', 'S': 'P'}
-    losing_scores = {v: k for k, v in winning_losing_scores.items()}
-    total_score = 0
-    for line in s.splitlines():
-        opp_orig, my_orig = line.split(' ')
-        opp, my = _translation[opp_orig], _translation[my_orig]
-        total_score += values[my_orig]
-        if values[my_orig] == 0:
-            total_score += weights[winning_losing_scores[opp]]
-        elif values[my_orig] == 3:
-            total_score += weights[opp]
-        elif values[my_orig] == 6:
-            total_score += weights[losing_scores[opp]]
-    print(total_score)
+    values = {letter: i for i, letter in enumerate(string.ascii_letters, start=1)}
+    out = 0
+    comp = []
+    for i, line in enumerate(s.splitlines()):
+        if i != 0 and i % 3 == 0:
+            comp = []
+        comp.append(line)
+        if len(comp) < 3:
+            continue
+        val = list({val for val in comp[0] if val in comp[1] and val in comp[2]})[0]
+        out += values[val]
+    print(out)
     return 0
 
 if __name__ == "__main__":
