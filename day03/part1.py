@@ -21,5 +21,6 @@ def solver(s: str) -> int:
     print(out)
     return 0
 
+
 if __name__ == "__main__":
     raise SystemExit(solver(file_reader(file)))
