@@ -20,7 +20,7 @@ def solver(s: str) -> int:
         comp.append(line)
         if len(comp) < 3:
             continue
-        val = list({val for val in comp[0] if val in comp[1] and val in comp[2]})[0]
+        (val,) = set(comp[0]) & set(comp[1]) & set(comp[2])
         out += values[val]
     print(out)
     return 0
