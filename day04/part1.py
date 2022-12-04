@@ -14,7 +14,10 @@ def solver(s: str) -> int:
         first, second = line.split(",")
         f_min, f_max = int(first.split("-")[0]), int(first.split("-")[-1])
         s_min, s_max = int(second.split("-")[0]), int(second.split("-")[-1])
-        if f_min <= s_min and s_max <= f_max or s_min <= f_min and f_max <= s_max:
+        first_set, second_set = set(range(f_min, f_max + 1)), set(
+            range(s_min, s_max + 1),
+        )
+        if len(first_set - second_set) == 0 or len(second_set - first_set) == 0:
             out += 1
     print(out)
     return 0

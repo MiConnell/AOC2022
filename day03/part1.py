@@ -14,9 +14,8 @@ def solver(s: str) -> int:
     out = 0
     for line in s.splitlines():
         mid = len(line) // 2
-        first = line[:mid]
-        second = line[mid:]
-        priority_item = list({f for f in first if f in second})[0]
+        first, second = line[:mid], line[mid:]
+        (priority_item,) = set(first) & set(second)
         out += values[priority_item]
     print(out)
     return 0
