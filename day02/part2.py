@@ -17,7 +17,7 @@ def solver(s: str) -> int:
     total_score = 0
     for line in s.splitlines():
         opp_orig, my_orig = line.split(" ")
-        opp, my = _translation[opp_orig], _translation[my_orig]
+        opp, _ = _translation[opp_orig], _translation[my_orig]
         total_score += values[my_orig]
         if values[my_orig] == 0:
             total_score += weights[winning_losing_scores[opp]]
