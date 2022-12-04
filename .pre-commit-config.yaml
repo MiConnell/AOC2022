@@ -9,11 +9,6 @@ repos:
     -   id: check-added-large-files
     -   id: check-ast
 
--   repo: https://github.com/psf/black
-    rev: 7f75fe3669ebf0627b1b0476a6d02047e909b959
-    hooks:
-    -   id: black
-
 -   repo: https://github.com/asottile/reorder_python_imports
     rev: v2.3.6
     hooks:
@@ -28,8 +23,3 @@ repos:
     rev: 59b49e77e418526be489c303b87fa2e19342fe6a
     hooks:
     -   id: pyupgrade
-
--   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: '6fd7e2a39e5a8f7c7b14ddcc5290ef69b0c446db'
-    hooks:
-    -   id: mypy
