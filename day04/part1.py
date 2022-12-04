@@ -16,7 +16,7 @@ def solver(s: str) -> int:
         s_min, s_max = second.split("-")
         first_set = set(range(int(f_min), int(f_max) + 1))
         second_set = set(range(int(s_min), int(s_max) + 1))
-        if len(first_set - second_set) == 0 or len(second_set - first_set) == 0:
+        if not (first_set - second_set) or not (second_set - first_set):
             out += 1
     print(out)
     return 0
