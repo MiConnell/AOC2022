@@ -1,5 +1,4 @@
 import os
-import string
 
 file = os.path.join(os.path.dirname(__file__), "blob.txt")
 
