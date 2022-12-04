@@ -1,6 +1,4 @@
 import os
-import string
-from typing import List
 
 file = os.path.join(os.path.dirname(__file__), "blob.txt")
 
@@ -11,17 +9,17 @@ def file_reader(file: str) -> str:
 
 
 def solver(s: str) -> int:
-    values = {letter: i for i, letter in enumerate(string.ascii_letters, start=1)}
     out = 0
-    comp: List[str] = []
-    for i, line in enumerate(s.splitlines()):
-        if i != 0 and i % 3 == 0:
-            comp = []
-        comp.append(line)
-        if len(comp) < 3:
-            continue
-        (val,) = set(comp[0]) & set(comp[1]) & set(comp[2])
-        out += values[val]
+    for line in s.splitlines():
+        first, second = line.split(",")
+        f_min, f_max = int(first.split("-")[0]), int(first.split("-")[-1])
+        s_min, s_max = int(second.split("-")[0]), int(second.split("-")[-1])
+        if f_min <= s_min:
+            if s_min <= f_max <= s_max or s_max <= f_max:
+                out += 1
+        elif s_min <= f_min:
+            if f_min <= s_max <= f_max or f_max <= s_max:
+                out += 1
     print(out)
     return 0
 
