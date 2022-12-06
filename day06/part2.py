@@ -10,13 +10,13 @@ def file_reader(file: str) -> str:
 
 
 def solver(s: str) -> int:
-    check = collections.deque(maxlen=14)
+    target = 14
+    check = collections.deque(maxlen=target)
     for i, letter in enumerate(s.strip(), start=1):
         check.append(letter)
-        if len(check) <= 3 or len(check) != len(set(check)):
-            continue
-        print(i)
-        break
+        if len(set(check)) == target:
+            print(i)
+            break
     return 0
 
 
