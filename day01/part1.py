@@ -12,5 +12,10 @@ def solver(s: str) -> int:
     return max(sum(int(line) for line in part.splitlines()) for part in s.split("\n\n"))
 
 
-if __name__ == "__main__":
+def main() -> int:
     print(solver(file_reader(file)))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

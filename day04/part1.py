@@ -18,9 +18,13 @@ def solver(s: str) -> int:
         second_set = set(range(int(s_min), int(s_max) + 1))
         if not (first_set - second_set) or not (second_set - first_set):
             out += 1
-    print(out)
+    return out
+
+
+def main() -> int:
+    print(solver(file_reader(file)))
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(solver(file_reader(file)))
+    raise SystemExit(main())

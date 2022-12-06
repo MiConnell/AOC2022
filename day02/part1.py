@@ -22,9 +22,13 @@ def solver(s: str) -> int:
             total_score += 6 + values[my]
         else:
             total_score += 3 + values[my]
-    print(total_score)
+    return total_score
+
+
+def main() -> int:
+    print(solver(file_reader(file)))
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(solver(file_reader(file)))
+    raise SystemExit(main())

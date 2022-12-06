@@ -15,10 +15,14 @@ def solver(s: str) -> int:
     for i, letter in enumerate(s.strip(), start=1):
         check.append(letter)
         if len(set(check)) == target:
-            print(i)
-            break
+            return i
+    raise NotImplementedError("Not Found")
+
+
+def main() -> int:
+    print(solver(file_reader(file)))
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(solver(file_reader(file)))
+    raise SystemExit(main())

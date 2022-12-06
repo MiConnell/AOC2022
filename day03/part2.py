@@ -22,9 +22,13 @@ def solver(s: str) -> int:
             continue
         (val,) = set(comp[0]) & set(comp[1]) & set(comp[2])
         out += values[val]
-    print(out)
+    return out
+
+
+def main() -> int:
+    print(solver(file_reader(file)))
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(solver(file_reader(file)))
+    raise SystemExit(main())
