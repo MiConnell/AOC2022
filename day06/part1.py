@@ -14,10 +14,9 @@ def solver(s: str) -> int:
     check = collections.deque(maxlen=target)
     for i, letter in enumerate(s.strip(), start=1):
         check.append(letter)
-        if len(set(check)) != target:
-            continue
-        print(i)
-        break
+        if len(set(check)) == target:
+            print(i)
+            break
     return 0
 
 
