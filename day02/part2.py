@@ -25,9 +25,13 @@ def solver(s: str) -> int:
             total_score += weights[opp]
         elif values[my_orig] == 6:
             total_score += weights[losing_scores[opp]]
-    print(total_score)
+    return total_score
+
+
+def main() -> int:
+    print(solver(file_reader(file)))
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(solver(file_reader(file)))
+    raise SystemExit(main())

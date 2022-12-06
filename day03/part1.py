@@ -17,9 +17,13 @@ def solver(s: str) -> int:
         first, second = line[:mid], line[mid:]
         (priority_item,) = set(first) & set(second)
         out += values[priority_item]
-    print(out)
+    return out
+
+
+def main() -> int:
+    print(solver(file_reader(file)))
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(solver(file_reader(file)))
+    raise SystemExit(main())

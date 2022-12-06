@@ -15,5 +15,10 @@ def solver(s: str) -> int:
     return sum(out[:-3])
 
 
-if __name__ == "__main__":
+def main() -> int:
     print(solver(file_reader(file)))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
