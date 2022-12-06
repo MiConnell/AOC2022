@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import collections
 import os
 
@@ -5,13 +7,13 @@ file = os.path.join(os.path.dirname(__file__), "blob.txt")
 
 
 def file_reader(file: str) -> str:
-    with open(file, "r") as f:
+    with open(file) as f:
         return f.read()
 
 
 def solver(s: str) -> int:
     target = 14
-    check = collections.deque(maxlen=target)
+    check: collections.deque[str] = collections.deque(maxlen=target)
     for i, letter in enumerate(s.strip(), start=1):
         check.append(letter)
         if len(set(check)) == target:

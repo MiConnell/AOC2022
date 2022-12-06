@@ -1,19 +1,26 @@
+from __future__ import annotations
+
 import os
 import string
-from typing import List
 
 file = os.path.join(os.path.dirname(__file__), "blob.txt")
 
 
 def file_reader(file: str) -> str:
-    with open(file, "r") as f:
+    with open(file) as f:
         return f.read()
 
 
 def solver(s: str) -> int:
-    values = {letter: i for i, letter in enumerate(string.ascii_letters, start=1)}
+    values = {
+        letter: i
+        for i, letter in enumerate(
+            string.ascii_letters,
+            start=1,
+        )
+    }
     out = 0
-    comp: List[str] = []
+    comp: list[str] = []
     for i, line in enumerate(s.splitlines()):
         if i != 0 and i % 3 == 0:
             comp = []
