@@ -1,10 +1,12 @@
+from __future__ import annotations
+
 import os
 
 file = os.path.join(os.path.dirname(__file__), "blob.txt")
 
 
 def file_reader(file: str) -> str:
-    with open(file, "r") as f:
+    with open(file) as f:
         return f.read()
 
 
